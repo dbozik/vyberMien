@@ -1,0 +1,16 @@
+﻿<Window x:Class="Vyber_mien.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Vyber mien" Height="350" Width="525">
+    <Grid>
+        <Button x:Name="btn1" Content="Button" HorizontalAlignment="Left" Height="52" Margin="43,53,0,0" VerticalAlignment="Top" Width="190" Click="btn1_Click"/>
+        <Button x:Name="btn2" Content="Button" HorizontalAlignment="Left" Height="52" Margin="268,53,0,0" VerticalAlignment="Top" Width="190" Click="btn2_Click"/>
+        <Button Content="delete" HorizontalAlignment="Left" Height="34" Margin="68,110,0,0" VerticalAlignment="Top" Width="146" Click="delete1_Click"/>
+        <Button Content="delete" HorizontalAlignment="Left" Height="34" Margin="289,110,0,0" VerticalAlignment="Top" Width="146" Click="delete2_Click"/>
+        <Button Content="delete both" HorizontalAlignment="Left" Height="31" Margin="179,172,0,0" VerticalAlignment="Top" Width="130" Click="deleteBoth_Click"/>
+        <Label x:Name="counter" Content="0" HorizontalAlignment="Left" Height="35" Margin="470,10,0,0" VerticalAlignment="Top" Width="38"/>
+        <Label x:Name="lblCount" Content="Count: 0" HorizontalAlignment="Left" Margin="430
+               ,277,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>
