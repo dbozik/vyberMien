@@ -47,43 +47,66 @@ namespace Vyber_mien
                 }
             }
         }
-        
+
         public Tuple<string, string> GetPair()
         {
             var random = new Random();
-            var firstNumber = random.Next(0, this.names.Count() - 5);
-            var secondNumber = random.Next(firstNumber + 1, firstNumber + 5);
-            var shuffler = random.Next(0, 2);
+            var firstNumber = random.Next(0, this.names.Count());
+            var secondNumber = -1;
+            do
+            {
+                secondNumber = random.Next(0, this.names.Count());
+            } while (secondNumber == firstNumber);
 
-            if (shuffler == 0)
-            {
-                return new Tuple<string, string>(this.names[firstNumber], this.names[secondNumber]);    
-            }
-            else
-            {
-                return new Tuple<string, string>(this.names[secondNumber], this.names[firstNumber]);
-            }
-            
+            return new Tuple<string, string>(this.names[firstNumber], this.names[secondNumber]);
         }
 
+        //public Tuple<string, string> GetPairOld()
+        //{
+        //    var random = new Random();
+        //    var firstNumber = random.Next(0, this.names.Count() - 5);
+        //    var secondNumber = random.Next(firstNumber + 1, firstNumber + 5);
+        //    var shuffler = random.Next(0, 2);
+
+        //    if (shuffler == 0)
+        //    {
+        //        return new Tuple<string, string>(this.names[firstNumber], this.names[secondNumber]);
+        //    }
+        //    else
+        //    {
+        //        return new Tuple<string, string>(this.names[secondNumber], this.names[firstNumber]);
+        //    }
+
+        //}
         public void ProcessChoice(string winner, string looser)
         {
             var winnerIndex = this.names.IndexOf(winner);
             var looserIndex = this.names.IndexOf(looser);
 
-            if (winnerIndex < looserIndex)
+            if (winnerIndex > looserIndex)
             {
-                this.names.MoveUp(winner);
-                this.names.MoveDown(looser);
-            }
-            else
-            {
-                this.names.MoveDown(looser);
-                this.names.MoveDown(looser);
-                this.names.MoveUp(winner);
-                this.names.MoveUp(winner);
+                this.names.Swap(winnerIndex, looserIndex);
             }
         }
+
+        //public void ProcessChoiceOld(string winner, string looser)
+        //{
+        //    var winnerIndex = this.names.IndexOf(winner);
+        //    var looserIndex = this.names.IndexOf(looser);
+
+        //    if (winnerIndex < looserIndex)
+        //    {
+        //        this.names.MoveUp(winner);
+        //        this.names.MoveDown(looser);
+        //    }
+        //    else
+        //    {
+        //        this.names.MoveDown(looser);
+        //        this.names.MoveDown(looser);
+        //        this.names.MoveUp(winner);
+        //        this.names.MoveUp(winner);
+        //    }
+        //}
 
         public void SaveFile()
         {
